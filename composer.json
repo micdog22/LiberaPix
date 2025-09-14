@@ -1,0 +1,31 @@
+{
+  "name": "micdog/liberapix",
+  "description": "LiberaPIX — Paywall PIX com liberação automática (PHP + SQLite + Mercado Pago)",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michael Douglas (MicDog)"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "vlucas/phpdotenv": "^5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "LiberaPIX\\": "src/"
+    }
+  },
+  "scripts": {
+    "serve": [
+      "php -S localhost:8080 -t public"
+    ],
+    "post-install-cmd": [
+      "php src/bootstrap.php --migrate"
+    ],
+    "post-update-cmd": [
+      "php src/bootstrap.php --migrate"
+    ]
+  }
+}
