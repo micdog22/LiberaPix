@@ -7,7 +7,7 @@
 Libera downloads/links **somente após pagamento via PIX** (Mercado Pago).  
 Ideal para **produtos digitais** (PDF, ZIP, licença, curso, acesso temporário, etc.).
 
-## ✨ Recursos
+## Recursos
 - Checkout PIX (gera QR e “copia e cola”)
 - **Webhook do Mercado Pago**: confirma pagamento e libera automaticamente
 - **Token de download com validade** (expiração configurável)
@@ -16,7 +16,7 @@ Ideal para **produtos digitais** (PDF, ZIP, licença, curso, acesso temporário,
 - Estrutura limpa para subir no GitHub como projeto open-source
 
 ---
-## 📦 Estrutura
+## Estrutura
 
 ```
 LiberaPIX/
@@ -54,7 +54,7 @@ LiberaPIX/
 ```
 
 ---
-## 🚀 Comece agora (local)
+## Comece agora (local)
 
 > Requisitos: PHP 8.1+, Composer, cURL.
 
@@ -76,7 +76,7 @@ composer run serve
 (Ex.: `http://localhost:8080/webhook/mercadopago.php` via túnel/Ngrok, ou seu domínio público em produção.)
 
 ---
-## 🔧 Configuração (.env)
+## Configuração (.env)
 
 ```
 APP_URL=http://localhost:8080
@@ -92,7 +92,7 @@ SUPPORT_EMAIL=suporte@exemplo.com
 - **SQLITE_PATH**: caminho do banco SQLite.
 
 ---
-## 🧪 Fluxo de ponta a ponta
+## Fluxo de ponta a ponta
 
 1. **Cliente abre** `public/index.php`
 2. Clica “Comprar com PIX” → `POST /api/checkout.php`
@@ -108,7 +108,7 @@ SUPPORT_EMAIL=suporte@exemplo.com
 6. `download.php?token=...` valida (pago + não expirado) e entrega o arquivo
 
 ---
-## 🛡️ Segurança & Boas Práticas
+## Segurança & Boas Práticas
 
 - **Webhook idempotente:** gravamos chaves em `idempotency_keys` para evitar reprocessamento.
 - **Nunca confie no payload:** confirmamos status consultando a **API oficial** do Mercado Pago.
@@ -121,7 +121,7 @@ SUPPORT_EMAIL=suporte@exemplo.com
 - **HTTPS obrigatório** em produção.
 
 ---
-## 🧩 Personalização
+## Personalização
 
 - **Preço/Produto:** ajuste em `public/index.php` (ex.: `amount_centavos: 990`).
 - **Nome/descrição** do pagamento: `CheckoutController.php`.
@@ -129,7 +129,7 @@ SUPPORT_EMAIL=suporte@exemplo.com
 - **Múltiplos produtos:** crie coluna/tabela de catálogo e associe `order.product_id`.
 
 ---
-## 🐘 Banco de Dados
+## Banco de Dados
 
 SQLite por padrão:
 - Tabela `orders`: status do pedido, `download_token`, expiração, `mp_payment_id`.
@@ -141,7 +141,7 @@ Para MySQL/Postgres:
 - Mantenha as colunas/índices equivalentes.
 
 ---
-## 🧰 Integração com Mercado Pago (Notas)
+## Integração com Mercado Pago (Notas)
 
 - Endpoint de criação de pagamento: `POST /v1/payments`
   - `payment_method_id = pix`
@@ -154,7 +154,7 @@ Para MySQL/Postgres:
 Este boilerplate já prevê leitura de `metadata.order_id` no webhook.
 
 ---
-## 🧑‍💻 Deploy (HostGator/Hostinger)
+## Deploy (HostGator/Hostinger)
 
 - PHP 8.1+ ativado
 - Suba os arquivos para uma pasta fora do `public_html` e aponte o **document root** para `public/`
@@ -163,7 +163,7 @@ Este boilerplate já prevê leitura de `metadata.order_id` no webhook.
 - Configure o webhook no painel do Mercado Pago para `https://SEU_DOMINIO/webhook/mercadopago.php`
 
 ---
-## ❓ FAQ
+## FAQ
 
 **Posso liberar um papel/cargo no Discord ao invés de download?**  
 Sim — troque `download.php` por um handler que bate na sua API/Discord ao aprovar.
@@ -175,14 +175,14 @@ Sim — mas sirva com `X-Accel-Redirect`/`X-Sendfile` para eficiência.
 Use Sandbox enquanto desenvolve; depois troque o `MP_ACCESS_TOKEN`.
 
 ---
-## 🤝 Contribuindo
+## Contribuindo
 
 1. Faça um fork
 2. `git checkout -b feature/minha-feature`
 3. Envie PR explicando o que mudou e por quê
 
 ---
-## 📝 Autor
+## Autor
 
 **Michael Douglas (MicDog)** — @MicDog  
-Projeto open-source para a comunidade 🇧🇷.
+Projeto open-source para a comunidade.
